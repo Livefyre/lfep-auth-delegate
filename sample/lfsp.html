@@ -6,8 +6,11 @@
         <script src="../bower_components/cajon/cajon.js"></script>
         <script src="../requirejs.conf.js"></script>
         <script>
+            require.config({
+                baseUrl: '../'
+            })
             require([
-                'lfsp-delegate',
+                'lfep-auth-delegate',
                 'livefyre-auth',
                 'auth/contrib/auth-button',
                 'auth/contrib/auth-log'
@@ -24,13 +27,13 @@
 
                 window.Auth = Auth;
                 window.AuthButton = new AuthButton(Auth, document.getElementById('login'));
-                window.AuthLog = new AuthLog(Auth, document.getElementById('logout'))
+                window.AuthLog = new AuthLog(Auth, document.getElementById('log'))
             });
         </script>
     </head>
     <body>
         <h1>LFSP Auth Sample</h1>
         <a href="#" id="login"></a>
-        <div id="logout"></div>
+        <div id="log"></div>
     </body>
 </html>
