@@ -35,6 +35,7 @@ LfspDelegate.prototype.login = function(callback) {
     function failure() {
         this.spObject.off(SP_EVENTS.ENGAGE_AUTH_CLOSE, failure);
         this.spObject.off(SP_EVENTS.LOGIN_COMPLETE, success);
+        callback(new Error());
     }
     this.engageApp.signIn();
     this.spObject.on(SP_EVENTS.LOGIN_COMPLETE, success, this);
