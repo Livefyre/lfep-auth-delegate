@@ -15,7 +15,7 @@ require.config({
     name: 'livefyre-auth',
     location: 'bower_components/livefyre-auth/src'
   },{
-    name: 'lfsp-delegate',
+    name: 'lfep-auth-delegate',
     location: '.',
     main: 'index'
   }]

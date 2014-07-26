@@ -1,6 +1,6 @@
 ({
     mainConfigFile: './requirejs.conf.js',
-    name: 'lfsp-delegate',
+    name: 'lfep-auth-delegate',
     out: './dist/index.js',
     optimize: 'uglify2',
     uglify2: {

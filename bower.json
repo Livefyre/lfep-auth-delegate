@@ -4,7 +4,7 @@
   "authors": [
     "JJ Weber <jjweber@gmail.com>"
   ],
-  "description": "Livefyre.requirable lfsp auth delegate",
+  "description": "Livefyre.requirable lfep auth delegate",
   "main": "index.js",
   "license": "MIT",
   "private": true,
