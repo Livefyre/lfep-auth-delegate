@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>LFSP Auth Sample</title>
+        <script src="https://profiles-0.qa-ext.livefyre.com/media/cHJvZmlsZXMtMC5xYS1leHQubGl2ZWZ5cmUuY29t/javascripts/customprofiles.js"></script>
+        <script src="../bower_components/cajon/cajon.js"></script>
+        <script src="../requirejs.conf.js"></script>
+        <script>
+            require([
+                'lfsp-delegate',
+                'livefyre-auth',
+                'auth/contrib/auth-button',
+                'auth/contrib/auth-log'
+            ], function(Delegate, Auth, AuthButton, AuthLog) {
+                // Lfsp delegate
+                var d = new Delegate({
+                    engageOpts: {
+                        app: 'livefyre-dev'
+                    },
+                    profileOpts: {}
+                });
+
+                Auth.delegate(d);
+
+                window.Auth = Auth;
+                window.AuthButton = new AuthButton(Auth, document.getElementById('login'));
+                window.AuthLog = new AuthLog(Auth, document.getElementById('logout'))
+            });
+        </script>
+    </head>
+    <body>
+        <h1>LFSP Auth Sample</h1>
+        <a href="#" id="login"></a>
+        <div id="logout"></div>
+    </body>
+</html>
