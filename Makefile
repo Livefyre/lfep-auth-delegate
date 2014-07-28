@@ -16,6 +16,7 @@ test: install
 dist: install
 	mkdir -p dist
 	node ./node_modules/requirejs/bin/r.js -o ./build.conf.js
+	node ./node_modules/requirejs/bin/r.js -o ./build.conf.js optimize=none out=./dist/index.js
 
 deploy: dist
 	node ./node_modules/.bin/lfcdn -e $(ENV)

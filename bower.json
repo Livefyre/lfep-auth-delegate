@@ -19,6 +19,7 @@
     "auth-delegate-livefyre": "Livefyre/auth-delegates#~0.3.6",
     "cajon": "~0.2.4",
     "auth": "Livefyre/auth#~0.2.1",
-    "livefyre-auth": "Livefyre/livefyre-auth#~0.5.4"
+    "livefyre-auth": "Livefyre/livefyre-auth#~0.5.4",
+    "almond": "~0.2.9"
   }
 }
