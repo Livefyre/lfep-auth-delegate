@@ -5,7 +5,7 @@ ENV=dev
 server:
 	node ./server.js
 
-install:
+install: package.json bower.json
 	npm install
 	node node_modules/.bin/bower install
 	touch $@
