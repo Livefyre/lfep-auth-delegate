@@ -6,7 +6,7 @@ var useragent = require('./util/user-agent');
 var SP_EVENTS = {
     LOGIN_COMPLETE: 'auth_login_complete',
     LOGOUT_COMPLETE: 'auth_logout_complete',
-    ENGAGE_AUTH_CLOSE: 'engage_auth_close'
+    LOGOUT_FAIL: 'auth_login_failure'
 };
 
 /**
@@ -27,19 +27,19 @@ function LfspDelegate(opt_config) {
 LfspDelegate.prototype.login = function(callback) {
     function success(data) {
         this.spObject.off(SP_EVENTS.LOGIN_COMPLETE, success);
-        this.spObject.off(SP_EVENTS.ENGAGE_AUTH_CLOSE, failure);
+        this.spObject.off(SP_EVENTS.LOGOUT_FAIL, failure);
         callback(null, {
             livefyre: data['token']
         });
     }
     function failure() {
-        this.spObject.off(SP_EVENTS.ENGAGE_AUTH_CLOSE, failure);
+        this.spObject.off(SP_EVENTS.LOGOUT_FAIL, failure);
         this.spObject.off(SP_EVENTS.LOGIN_COMPLETE, success);
         callback(new Error());
     }
     this.engageApp.signIn();
     this.spObject.on(SP_EVENTS.LOGIN_COMPLETE, success, this);
-    this.spObject.on(SP_EVENTS.ENGAGE_AUTH_CLOSE, failure, this);
+    this.spObject.on(SP_EVENTS.LOGOUT_FAIL, failure, this);
 };
 
 /**
