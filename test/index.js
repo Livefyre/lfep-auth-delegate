@@ -32,6 +32,11 @@ test('\n has login, loadSession, and logout handlers', function(t) {
     t.end();
 });
 
+test('\n has a forEachAuthentication deferred', function(t) {
+    t.ok(typeof LfspDelegate.prototype.forEachAuthentication === 'function');
+    t.end();
+});
+
 test('\n is constructable and destroyable', function(t) {
     var delegate = new LfspDelegate('abc', 'def');
     t.ok(typeof LfspDelegate.prototype.logout === 'function');
