@@ -84,6 +84,17 @@ LfspDelegate.prototype.editProfile = function() {
 };
 
 /**
+ * Listen to all SP Login Complete events, even those not initiated by a login.
+ */
+LfspDelegate.prototype.forEachAuthentication = function (callback) {
+    this.spObject.on(SP_EVENTS.LOGIN_COMPLETE, function(data) {
+        callback({
+            livefyre: data['token']
+        });
+    });
+};
+
+/**
  * Clean up any handlers, etc.
  */
 LfspDelegate.prototype.destroy = function() {
