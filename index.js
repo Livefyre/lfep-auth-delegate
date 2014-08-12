@@ -28,9 +28,7 @@ LfspDelegate.prototype.login = function(callback) {
     function success(data) {
         this.spObject.off(SP_EVENTS.LOGIN_COMPLETE, success);
         this.spObject.off(SP_EVENTS.LOGOUT_FAIL, failure);
-        callback(null, {
-            livefyre: data['token']
-        });
+        callback(null);
     }
     function failure() {
         this.spObject.off(SP_EVENTS.LOGOUT_FAIL, failure);
