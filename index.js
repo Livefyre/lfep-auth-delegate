@@ -17,8 +17,15 @@ function LfspDelegate(opt_config) {
     var config = opt_config || {};
 
     var spObject = this.spObject = window.fyre.sp;
-    this.engageApp = new spObject.app.Engage(config.engageOpts || {});
-    this.profileApp = new spObject.app.Profile(config.profileOpts || {});
+
+    if (config.delegateOpts) {
+        this.engageApp = new spObject.app.Engage(config.delegateOpts || {});
+        this.profileApp = new spObject.app.Profile(config.delegateOpts || {});
+    } else {
+        this.engageApp = new spObject.app.Engage(config.engageOpts || {});
+        this.profileApp = new spObject.app.Profile(config.profileOpts || {});
+    }
+
 }
 
 /**
